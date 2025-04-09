@@ -1,0 +1,5 @@
+# validacion-automatica
+
+[![Validar Script Shell](https://github.com/salmamax/validacion-automatica/actions/workflows/validate.yml/badge.svg)](https://github.com/salmamax/validacion-automatica/actions/workflows/validate.yml)
+
+Este es un repositorio de prueba para la validación automática de scripts shell con GitHub Actions.
