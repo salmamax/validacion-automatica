@@ -11,11 +11,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout del código
-      uses: actions/checkout@v4
+      - name: Checkout del código
+        uses: actions/checkout@v4
 
-    - name: Instalar ShellCheck
-      run: sudo apt-get install shellcheck
+      - name: Instalar ShellCheck
+        run: sudo apt-get update && sudo apt-get install -y shellcheck
 
-    - name: Ejecutar ShellCheck
-      run: shellcheck mi_script.sh || echo "::error::Errores encontrados en el script" && exit 1
+      - name: Validar script con ShellCheck
+        run: shellcheck mi_script.sh || (echo "::error::Error en ShellCheck" && exit 1)
