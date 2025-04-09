@@ -1,0 +1,19 @@
+name: Validar Script Shell
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  validar:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout del código
+      uses: actions/checkout@v3
+
+    - name: Ejecutar shellcheck
+      uses: koalaman/shellcheck-action@v2
+      with:
+        severity: error
+        check_all: true
