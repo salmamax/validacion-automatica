@@ -3,17 +3,19 @@ name: Validar Script Shell
 on:
   push:
     branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
-  validar:
+  validate:
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout del código
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
-    - name: Ejecutar shellcheck
-      uses: koalaman/shellcheck-action@v2
-      with:
-        severity: error
-        check_all: true
+    - name: Instalar ShellCheck
+      run: sudo apt-get install shellcheck
+
+    - name: Ejecutar ShellCheck
+      run: shellcheck mi_script.sh || echo "::error::Errores encontrados en el script" && exit 1
